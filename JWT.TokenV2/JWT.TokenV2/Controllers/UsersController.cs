@@ -14,7 +14,8 @@ namespace JWT.TokenV2.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
-        public UsersController(IUserRepository userRepository,IMapper mapper)
+
+        public UsersController(IUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _mapper = mapper;
@@ -39,8 +40,8 @@ namespace JWT.TokenV2.Controllers
             {
                 return BadRequest(new { message = "UserName Already Exists" });
             }
-            var user = _userRepository.Register(model.UserName, model.Password,model.Role);
-            if(user == null)
+            var user = _userRepository.Register(model.UserName, model.Password, model.Role);
+            if (user == null)
             {
                 return BadRequest(new { message = "Error While Register" });
             }
